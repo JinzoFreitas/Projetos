@@ -38,7 +38,7 @@ final_data
 import datetime as dt
 import csv
 
-with open('brasil-covid.csv', 'w') as file:
+with open('api_covid/csv/brasil_covid.csv', 'w') as file:
   write = csv.writer(file)
   write.writerows(final_data)
 
@@ -122,8 +122,8 @@ for obs in final_data[1::20]:
 
 chart = create_chart(x, [y_data_1, y_data_2], labels, title='Gráfico Confirmados vs Recuperados')  
 chart_content = get_api_chart(chart)
-save_image('meu-primeiro-grafico.png', chart_content)
-display_image('meu-primeiro-grafico.png')
+save_image('api_covid/graficos/conf_vs_recup.png', chart_content)
+display_image('api_covid/graficos/conf_vs_recup.png')
 
 from urllib.parse import quote
 
@@ -135,5 +135,5 @@ def get_api_qrcode(link):
 
 url_base = 'https://quickchart.io/chart'
 link = f'{url_base}?c={str(chart)}'
-save_image('qr-code.png', get_api_qrcode(link))
-display_image('qr-code.png')
+save_image('api_covid/graficos/qr_code.png', get_api_qrcode(link))
+display_image('api_covid/graficos/qr_code.png')
